@@ -1,0 +1,24 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateAccessTables extends Migration
+{
+    public function up()
+    {
+        Schema::create('access', function (Blueprint $table) {
+            $table->increments('id');
+            $table->morphs('accessable');
+            $table->string('field');
+            $table->json('access');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    public function down()
+    {
+        Schema::drop('access');
+    }
+}

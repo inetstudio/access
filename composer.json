@@ -1,0 +1,28 @@
+{
+    "name": "inetstudio/access",
+    "description": "Package for access",
+    "homepage": "https://github.com/inetstudio/access",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Konstantin Bukin",
+        "email": "bukin@inetstudio.ru"
+      }
+    ],
+    "require": {
+      "inetstudio/admin-panel": "1.5.*"
+    },
+    "autoload": {
+      "psr-4": {
+        "InetStudio\\Access\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "InetStudio\\Access\\Providers\\FormBuilderServiceProvider",
+          "InetStudio\\Access\\Providers\\AccessServiceProvider"
+        ]
+      }
+    }
+}
