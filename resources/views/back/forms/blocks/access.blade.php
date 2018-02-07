@@ -25,7 +25,9 @@
                                 'multiple' => 'multiple',
                                 'data-source' => route('back.acl.roles.getSuggestions'),
                             ],
-                            'options' => (old('access.'.$field.'.roles')) ? \App\Role::whereIn('id', old('access.'.$field.'.roles'))->pluck('display_name', 'id')->toArray() : \App\Role::whereIn('id', $item->getFieldAccessByKey($field, 'roles'))->pluck('display_name', 'id')->toArray(),
+                            'options' => [
+                                'values' => (old('access.'.$field.'.roles')) ? \App\Role::whereIn('id', old('access.'.$field.'.roles'))->pluck('display_name', 'id')->toArray() : \App\Role::whereIn('id', $item->getFieldAccessByKey($field, 'roles'))->pluck('display_name', 'id')->toArray(),
+                            ],
                         ]) !!}
                     @endforeach
                 </div>
