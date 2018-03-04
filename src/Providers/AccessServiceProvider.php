@@ -8,8 +8,7 @@ use InetStudio\Access\Console\Commands\SetupCommand;
 use InetStudio\Access\Contracts\Models\AccessModelContract;
 
 /**
- * Class AccessServiceProvider
- * @package InetStudio\Products\Providers
+ * Class AccessServiceProvider.
  */
 class AccessServiceProvider extends ServiceProvider
 {

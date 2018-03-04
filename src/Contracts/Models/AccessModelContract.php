@@ -3,8 +3,7 @@
 namespace InetStudio\Access\Contracts\Models;
 
 /**
- * Interface AccessModelContract
- * @package InetStudio\Access\Contracts\Models
+ * Interface AccessModelContract.
  */
 interface AccessModelContract
 {
