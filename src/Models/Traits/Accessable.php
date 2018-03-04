@@ -24,6 +24,7 @@ trait Accessable
     public function getFieldAccessByKey($field, $key)
     {
         $access = $this->getFieldAccess($field);
+
         return ($access) ? $access->getJSONData('access', $key) : [];
     }
 
