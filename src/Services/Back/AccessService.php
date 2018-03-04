@@ -1,20 +1,22 @@
 <?php
 
-namespace InetStudio\Access\Http\Controllers\Back\Traits;
+namespace InetStudio\Access\Services\Back;
+
+use InetStudio\Access\Contracts\Services\Back\AccessServiceContract;
 
 /**
- * Trait AccessManipulationsTrait
- * @package InetStudio\Access\Http\Controllers\Back\Traits
+ * Class AccessService.
  */
-trait AccessManipulationsTrait
+class AccessService implements AccessServiceContract
 {
     /**
-     * Сохраняем доступ.
+     * Присваиваем доступы объекту.
+     *
+     * @param $request
      *
      * @param $item
-     * @param $request
      */
-    private function saveAccess($item, $request): void
+    public function attachToObject($request, $item)
     {
         if ($request->filled('access')) {
             $item->removeAccess();

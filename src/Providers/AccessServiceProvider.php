@@ -84,5 +84,8 @@ class AccessServiceProvider extends ServiceProvider
     public function registerBindings(): void
     {
         $this->app->bind(AccessModelContract::class, AccessModel::class);
+
+        // Services
+        $this->app->bind('InetStudio\Access\Contracts\Services\Back\AccessServiceContract', 'InetStudio\Access\Services\Back\AccessService');
     }
 }
