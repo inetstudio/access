@@ -1,3 +1,5 @@
+@inject('rolesService', 'InetStudio\ACL\Roles\Contracts\Services\Back\RolesServiceContract')
+
 @php
     $item = $value;
     $accessConfig = config($name.'.access');
@@ -26,7 +28,7 @@
                                 'data-source' => route('back.acl.roles.getSuggestions'),
                             ],
                             'options' => [
-                                'values' => (old('access.'.$field.'.roles')) ? \App\Role::whereIn('id', old('access.'.$field.'.roles'))->pluck('display_name', 'id')->toArray() : \App\Role::whereIn('id', $item->getFieldAccessByKey($field, 'roles'))->pluck('display_name', 'id')->toArray(),
+                                'values' => (old('access.'.$field.'.roles')) ? $rolesService->getRolesByIDs(old('access.'.$field.'.roles'), true)->pluck('display_name', 'id')->toArray() : $rolesService->getRolesByIDs($item->getFieldAccessByKey($field, 'roles'), true)->pluck('display_name', 'id')->toArray(),
                             ],
                         ]) !!}
                     @endforeach
