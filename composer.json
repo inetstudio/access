@@ -21,6 +21,7 @@
       "laravel": {
         "providers": [
           "InetStudio\\Access\\Providers\\FormBuilderServiceProvider",
+          "InetStudio\\Access\\Providers\\AccessBindingsServiceProvider",
           "InetStudio\\Access\\Providers\\AccessServiceProvider"
         ]
       }

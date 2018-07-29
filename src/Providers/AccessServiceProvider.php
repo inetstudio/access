@@ -3,9 +3,7 @@
 namespace InetStudio\Access\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use InetStudio\Access\Models\AccessModel;
 use InetStudio\Access\Console\Commands\SetupCommand;
-use InetStudio\Access\Contracts\Models\AccessModelContract;
 
 /**
  * Class AccessServiceProvider.
@@ -22,16 +20,6 @@ class AccessServiceProvider extends ServiceProvider
         $this->registerConsoleCommands();
         $this->registerPublishes();
         $this->registerViews();
-    }
-
-    /**
-     * Регистрация привязки в контейнере.
-     *
-     * @return void
-     */
-    public function register(): void
-    {
-        $this->registerBindings();
     }
 
     /**
@@ -73,18 +61,5 @@ class AccessServiceProvider extends ServiceProvider
     protected function registerViews(): void
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'admin.module.access');
-    }
-
-    /**
-     * Регистрация привязок, алиасов и сторонних провайдеров сервисов.
-     *
-     * @return void
-     */
-    public function registerBindings(): void
-    {
-        $this->app->bind(AccessModelContract::class, AccessModel::class);
-
-        // Services
-        $this->app->bind('InetStudio\Access\Contracts\Services\Back\AccessServiceContract', 'InetStudio\Access\Services\Back\AccessService');
     }
 }
