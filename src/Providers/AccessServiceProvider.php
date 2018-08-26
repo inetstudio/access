@@ -2,6 +2,7 @@
 
 namespace InetStudio\Access\Providers;
 
+use Collective\Html\FormBuilder;
 use Illuminate\Support\ServiceProvider;
 use InetStudio\Access\Console\Commands\SetupCommand;
 
@@ -20,6 +21,7 @@ class AccessServiceProvider extends ServiceProvider
         $this->registerConsoleCommands();
         $this->registerPublishes();
         $this->registerViews();
+        $this->registerFormComponents();
     }
 
     /**
@@ -61,5 +63,15 @@ class AccessServiceProvider extends ServiceProvider
     protected function registerViews(): void
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'admin.module.access');
+    }
+
+    /**
+     * Регистрация компонентов форм.
+     *
+     * @return void
+     */
+    protected function registerFormComponents()
+    {
+        FormBuilder::component('access', 'admin.module.access::back.forms.blocks.access', ['name' => null, 'value' => null, 'attributes' => null]);
     }
 }
