@@ -9,9 +9,6 @@
         "email": "bukin@inetstudio.ru"
       }
     ],
-    "require": {
-      "inetstudio/admin-panel": "1.6.*"
-    },
     "autoload": {
       "psr-4": {
         "InetStudio\\Access\\": "src/"
