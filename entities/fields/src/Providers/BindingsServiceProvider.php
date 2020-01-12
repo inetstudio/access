@@ -16,6 +16,7 @@ class BindingsServiceProvider extends BaseServiceProvider implements DeferrableP
     public $bindings = [
         'InetStudio\AccessPackage\Fields\Contracts\Models\FieldModelContract' => 'InetStudio\AccessPackage\Fields\Models\FieldModel',
         'InetStudio\AccessPackage\Fields\Contracts\Services\Back\ItemsServiceContract' => 'InetStudio\AccessPackage\Fields\Services\Back\ItemsService',
+        'InetStudio\AccessPackage\Fields\Contracts\Services\Front\ItemsServiceContract' => 'InetStudio\AccessPackage\Fields\Services\Front\ItemsService',
     ];
 
     /**
