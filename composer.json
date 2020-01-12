@@ -11,14 +11,16 @@
     ],
     "autoload": {
       "psr-4": {
-        "InetStudio\\Access\\": "src/"
+        "InetStudio\\AccessPackage\\": "package/src",
+        "InetStudio\\AccessPackage\\Fields\\": "entities/fields/src"
       }
     },
     "extra": {
       "laravel": {
         "providers": [
-          "InetStudio\\Access\\Providers\\AccessBindingsServiceProvider",
-          "InetStudio\\Access\\Providers\\AccessServiceProvider"
+          "InetStudio\\AccessPackage\\Providers\\ServiceProvider",
+          "InetStudio\\AccessPackage\\Fields\\Providers\\BindingsServiceProvider",
+          "InetStudio\\AccessPackage\\Fields\\Providers\\ServiceProvider"
         ]
       }
     }
