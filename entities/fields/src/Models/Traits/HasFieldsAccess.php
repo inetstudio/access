@@ -292,7 +292,7 @@ trait HasFieldsAccess
         static::$dispatcher->dispatch('inetstudio.fields_access.syncing', [$this, $fieldsAccess]);
 
         foreach ($fieldsAccess ?? [] as $field => $access) {
-            if ($access === '') {
+            if (empty($access)) {
                 $this->deleteFieldAccess($field);
             } else {
                 $this->updateFieldAccess($field, $access);
