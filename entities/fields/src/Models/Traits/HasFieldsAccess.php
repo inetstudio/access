@@ -50,7 +50,7 @@ trait HasFieldsAccess
     {
         $className = $this->getFieldAccessClassName();
 
-        return $this->morphMany($className, 'accessable');
+        return $this->morphMany($className, 'model');
     }
 
     /**

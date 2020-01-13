@@ -68,31 +68,31 @@ class FieldModel extends Model implements FieldModelContract
 
         self::$buildQueryScopeDefaults['columns'] = [
             'id',
-            'accessable_id',
-            'accessable_type',
+            'model_id',
+            'model_type',
             'field',
             'access',
         ];
     }
 
     /**
-     * Сеттер атрибута accessable_type.
+     * Сеттер атрибута model_type.
      *
      * @param $value
      */
-    public function setAccessableTypeAttribute($value)
+    public function setModelTypeAttribute($value)
     {
-        $this->attributes['accessable_type'] = trim(strip_tags($value));
+        $this->attributes['model_type'] = trim(strip_tags($value));
     }
 
     /**
-     * Сеттер атрибута accessable_id.
+     * Сеттер атрибута model_id.
      *
      * @param $value
      */
-    public function setAccessableIdAttribute($value)
+    public function setModelIdAttribute($value)
     {
-        $this->attributes['accessable_id'] = (int) trim(strip_tags($value));
+        $this->attributes['model_id'] = (int) trim(strip_tags($value));
     }
 
     /**
@@ -130,7 +130,7 @@ class FieldModel extends Model implements FieldModelContract
      *
      * @return MorphTo
      */
-    public function accessable(): MorphTo
+    public function model(): MorphTo
     {
         return $this->morphTo();
     }

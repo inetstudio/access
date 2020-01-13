@@ -15,7 +15,7 @@ class CreateAccessFieldsTables extends Migration
     {
         Schema::create('access_fields', function (Blueprint $table) {
             $table->increments('id');
-            $table->morphs('accessable');
+            $table->morphs('model');
             $table->string('field');
             $table->json('access');
             $table->timestamps();
