@@ -167,7 +167,7 @@ trait HasFieldsAccess
     public function scopeWithAllFieldsAccess(Builder $query, $fieldsAccess): Builder
     {
         $fieldsAccess = $this->isFieldsAccessStringBased($fieldsAccess)
-            ? $fieldsAccess : $this->hydrateFieldsAccess($fieldsAccess)->pluck('field');
+            ? $fieldsAccess : $this->hydrateFieldsAccess($fieldsAccess)->pluck('field')->toArray();
 
         collect($fieldsAccess)->each(
             function ($fieldsAccessItem) use ($query) {
@@ -196,7 +196,7 @@ trait HasFieldsAccess
     public function scopeWithAnyFieldAccess(Builder $query, $fieldsAccess): Builder
     {
         $fieldsAccess = $this->isFieldsAccessStringBased($fieldsAccess)
-            ? $fieldsAccess : $this->hydrateFieldsAccess($fieldsAccess)->pluck('field');
+            ? $fieldsAccess : $this->hydrateFieldsAccess($fieldsAccess)->pluck('field')->toArray();
 
         return $query->whereHas(
             'fields_access',
@@ -234,7 +234,7 @@ trait HasFieldsAccess
     public function scopeWithoutFieldsAccess(Builder $query, $fieldsAccess): Builder
     {
         $fieldsAccess = $this->isFieldsAccessStringBased($fieldsAccess)
-            ? $fieldsAccess : $this->hydrateFieldsAccess($fieldsAccess)->pluck('field');
+            ? $fieldsAccess : $this->hydrateFieldsAccess($fieldsAccess)->pluck('field')->toArray();
 
         return $query->whereDoesntHave(
             'fields_access',
