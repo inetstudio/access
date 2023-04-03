@@ -19,9 +19,7 @@ class CreateAccessFieldsTables extends Migration
             $table->string('field');
             $table->json('access');
             $table->timestamps();
-            $table->softDeletes();
-
-            $table->index(['accessable_id', 'accessable_type']);
+            $table->softDeletes();            
         });
     }
 
